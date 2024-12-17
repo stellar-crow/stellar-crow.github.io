@@ -122,7 +122,7 @@ export default (() => {
     const baseDir = fileData.slug === "404" ? path : pathToRoot(fileData.slug!)
 
     //NOTE: SITE_ICON
-    const iconPath = joinSegments(baseDir, "static/star_128.png")
+    const iconPath = joinSegments(baseDir, "static/star_128_tr.png")
 
     const ogImageDefaultPath = `https://${cfg.baseUrl}/static/og-image.png`
     // "static/social-images/slug-filename.md.webp"
