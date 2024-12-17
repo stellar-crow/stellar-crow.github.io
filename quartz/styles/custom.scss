@@ -1,3 +1,93 @@
 @use "./base.scss";
 
 // put your custom CSS here!
+
+
+/* Shared styles for both block types */
+.custom-block, .custom-block-right {
+  position: relative; /* Allows positioning of pseudo-elements */
+  font-size: 18px; /* Text size */
+  color: #e3b789; /* Text color */
+  text-transform: capitalize; /* Capitalize the first letter */
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  /* display: block; Ensure each block starts on a new line */
+}
+
+/* Specific alignment for left-aligned block */
+.custom-block {
+  text-align: left; /* Align text to the left */
+}
+
+/* Specific alignment for right-aligned block */
+.custom-block-right {
+  text-align: right;
+  float: right;
+}
+
+.custom-block-right-text {
+  clear: both;
+  display: block;
+  text-align: right;
+}
+
+/* Dashed line for the first character (shared) */
+.custom-block::before, .custom-block-right::before {
+  content: ""; /* Empty content for the pseudo-element */
+  position: absolute;
+  bottom: 0; /* Position the line below the text */
+  width: 2px; /* Length of the dashed line under the first character */
+  height: 1px; /* Thickness of the dashed line */
+  background: repeating-linear-gradient(
+                  to right, /* Default direction for dashed line */
+                  #e3b789, /* Solid part of the dash */
+                  #e3b789 6px, /* Length of the solid part */
+                  transparent 6px, /* Start of the gap */
+                  transparent 10px /* End of the gap */
+  );
+}
+
+/* Solid line under the rest of the text for left-aligned block */
+.custom-block::after {
+  content: ""; /* Empty content for the pseudo-element */
+  position: absolute;
+  bottom: 0; /* Position the line below the text */
+  left: 4px; /* Start the solid line after the dashed one */
+  width: calc(100% + 20px); /* Adjust width for left-aligned */
+  height: 1px; /* Thickness of the solid line */
+  background: linear-gradient(
+                  to right, /* Gradient starts from the left */
+                  #e3b789,          /* Solid color at the start */
+                  #e3b789 70%,      /* Solid line up to 70% of its length */
+                  transparent 100%  /* Fades out to full transparency */
+  );
+}
+
+/* Adjust direction of dashed line for right-aligned block */
+.custom-block-right::before {
+  right: 0; /* Start the dashed line at the right edge */
+  background: repeating-linear-gradient(
+                  to left, /* Gradient starts from the right for right-aligned */
+                  #e3b789, /* Solid part of the dash */
+                  #e3b789 6px, /* Length of the solid part */
+                  transparent 6px, /* Start of the gap */
+                  transparent 10px /* End of the gap */
+  );
+}
+
+/* Solid line under the rest of the text for right-aligned block */
+.custom-block-right::after {
+  content: ""; /* Empty content for the pseudo-element */
+  position: absolute;
+  bottom: 0; /* Position the line below the text */
+  right: 4px; /* Start the solid line after the dashed one */
+  width: calc(100% + 20px); /* Adjust width for right-aligned */
+  height: 1px; /* Thickness of the solid line */
+  background: linear-gradient(
+                  to left, /* Gradient starts from the right */
+                  #e3b789,          /* Solid color at the start */
+                  #e3b789 70%,      /* Solid line up to 70% of its length */
+                  transparent 100%  /* Fades out to full transparency */
+  );
+}
