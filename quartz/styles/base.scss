@@ -171,8 +171,7 @@ a {
       grid-template-areas: #{map-get($mobileGrid, templateAreas)};
     }
 
-    //TODO: check correctness
-    @media all and (not $desktop) {
+    @media all and not ($desktop) {
       padding: 0 1rem;
     }
     @media all and ($mobile) {
@@ -213,7 +212,7 @@ a {
         margin-left: inherit;
         margin-right: inherit;
       }
-      @media all and (not $desktop) {
+      @media all and not ($desktop) {
         position: initial;
         height: unset;
         width: 100%;
