@@ -10,6 +10,7 @@ import { i18n } from "../i18n"
 
 // Options interface defined in `ExplorerNode` to avoid circular dependency
 const defaultOptions = {
+  title: "Lore",
   /*folderClickBehavior: "collapse",*/
   folderClickBehavior: "link",
   folderDefaultState: "collapsed",
